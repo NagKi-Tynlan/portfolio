@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    cursor: url(assets/icons8-minecraft-sword-32.png), auto;
+}
+
+.hero-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.video-panel {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-panel video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-panel {
+    width: 50%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.looping-text {
+    color: #ff78d9;
+    margin: 0;
+    font-size: clamp(4rem, 12vw, 10rem);
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    animation: fadeInOut 4s ease-in-out infinite, colorShift 6s ease-in-out infinite;
+    transition: color 1s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes colorShift {
+    0%, 100% { color: hsl(321, 100%, 95%); }
+    50% { color: #ffd4f4; }
+}
+
+.nav-link {
+  display: inline-block;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  color: #ffbced;
+  text-decoration: none;
+  animation: fadeInOut 4s ease-in-out infinite; 
+ }
+ .nav-link:hover {
+  color: #ff81db;
+  text-decoration: underline;
+  cursor: url(assets/minecraft-sword-click-cursor.png), auto;
+  text-shadow: 0 0 10px rgba(255, 63, 201, 0.5);
+ }
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-section {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.projects-section {
+    background: #ffffff;
+    color: #333;
+}
+
+.contact-section {
+    background: #e9ecef;
+    color: #333;
+}
+
+.section h2 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.project-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #ff78d9;
+}
+
+.project-card p {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
