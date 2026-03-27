@@ -155,3 +155,16 @@ html, body {
     margin-bottom: 0;
     font-size: 1rem;
 }
+/*
+.social-icons {
+    width: 60px;
+    height: 60px;
+    background:rgb(246, 15, 15);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: url(assets/minecraft-sword-click-cursor.png), auto;
+    border-radius: 50%;
+}
+*/
