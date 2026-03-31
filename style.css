@@ -84,6 +84,16 @@ html, body {
   cursor: url(assets/minecraft-sword-click-cursor.png), auto;
   text-shadow: 0 0 10px rgba(255, 63, 201, 0.5);
  }
+ #ABOUT {
+    color: #ff78d9;
+    margin: 0;
+    font-size: clamp(4rem, 12vw, 10rem);
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    
+}
 
 .section {
     min-height: 100vh;
@@ -257,4 +267,123 @@ html, body {
 .socials-container a:hover::after{
     transform:translateY(-42px) rotate(0);
     opacity: 1;
+}
+
+.player-wrap {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#music-player {
+    width: 60px;
+    background: white;
+    border: 2px solid #ff78d9;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#music-player::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #ff78d9, #8a2be2, #ff78d9);
+    z-index: -1;
+    opacity: 0;
+    animation: glowBorder 3s infinite;
+}
+
+#music-player:hover::after {
+    opacity: 1;
+}
+
+@keyframes glowBorder {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 120, 217, 0.5); }
+    50% { box-shadow: 0 0 25px rgba(138, 43, 226, 0.8); }
+}
+
+#music-player:hover {
+    width: 320px;
+}
+
+#current-song {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+#album-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#track-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+#music-player:hover #track-list {
+    max-height: 500px; /* Adjust based on number of tracks */
+    opacity: 1;
+}
+
+.track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.track:hover {
+    background: rgba(255, 120, 217, 0.1);
+}
+
+.thumb {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.track:hover .play-icon {
+    opacity: 1;
+}
+
+#shuffle-btn {
+    display: none;
 }
